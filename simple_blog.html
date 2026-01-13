@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 2rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .posts {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .post {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .post:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .post h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .post-meta {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .post-excerpt {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .read-more {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .read-more:hover {
+            color: #2980b9;
+        }
+
+        .full-post {
+            display: none;
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .full-post.active {
+            display: block;
+        }
+
+        .back-btn {
+            color: #3498db;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            color: #2980b9;
+        }
+
+        .post-content {
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .post-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: #999;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>My Blog</h1>
+            <p class="tagline">Thoughts, stories, and ideas</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="home-view">
+            <div class="posts">
+                <article class="post" onclick="showPost(1)">
+                    <h2>Getting Started with Web Development</h2>
+                    <div class="post-meta">January 12, 2026</div>
+                    <p class="post-excerpt">Web development can seem overwhelming at first, but breaking it down into manageable pieces makes it much more approachable. In this post, I'll share my journey and some tips for beginners...</p>
+                    <span class="read-more">Read more →</span>
+                </article>
+
+                <article class="post" onclick="showPost(2)">
+                    <h2>The Importance of Daily Writing</h2>
+                    <div class="post-meta">January 10, 2026</div>
+                    <p class="post-excerpt">Writing every day has transformed the way I think and communicate. It's not about perfection—it's about practice and consistency. Here's what I've learned from maintaining a daily writing habit...</p>
+                    <span class="read-more">Read more →</span>
+                </article>
+
+                <article class="post" onclick="showPost(3)">
+                    <h2>Exploring New Technologies</h2>
+                    <div class="post-meta">January 8, 2026</div>
+                    <p class="post-excerpt">The tech landscape is constantly evolving, and staying curious is key to growth. In this post, I dive into some exciting technologies I've been exploring recently and why they matter...</p>
+                    <span class="read-more">Read more →</span>
+                </article>
+            </div>
+        </div>
+
+        <div id="post-1" class="full-post">
+            <span class="back-btn" onclick="showHome()">← Back to all posts</span>
+            <h2>Getting Started with Web Development</h2>
+            <div class="post-meta">January 12, 2026</div>
+            <div class="post-content">
+                <p>Web development can seem overwhelming at first, but breaking it down into manageable pieces makes it much more approachable. When I first started learning, I was intimidated by the sheer amount of technologies and frameworks available.</p>
+                
+                <p>The key is to start with the fundamentals: HTML, CSS, and JavaScript. These three technologies form the foundation of every website you see on the internet. HTML provides the structure, CSS handles the styling and layout, and JavaScript adds interactivity.</p>
+                
+                <p>Don't rush to learn frameworks right away. Spend time really understanding how these core technologies work. Build simple projects, experiment, and don't be afraid to break things. That's how you learn.</p>
+                
+                <p>Most importantly, remember that every expert was once a beginner. The web development community is generally welcoming and helpful, so don't hesitate to ask questions and seek help when you need it.</p>
+            </div>
+        </div>
+
+        <div id="post-2" class="full-post">
+            <span class="back-btn" onclick="showHome()">← Back to all posts</span>
+            <h2>The Importance of Daily Writing</h2>
+            <div class="post-meta">January 10, 2026</div>
+            <div class="post-content">
+                <p>Writing every day has transformed the way I think and communicate. It's not about perfection—it's about practice and consistency. When I committed to writing daily, I didn't expect the profound impact it would have on my life.</p>
+                
+                <p>At first, it was difficult. Staring at a blank page is intimidating. But I learned that the key is to just start, even if what you write isn't great. The act of writing itself is what matters.</p>
+                
+                <p>Over time, I noticed my thinking becoming clearer. Writing forces you to organize your thoughts, to make sense of the chaos in your mind. It's like meditation, but with words.</p>
+                
+                <p>If you're thinking about starting a writing habit, my advice is simple: start small. Even five minutes a day is enough. Don't worry about publishing or sharing—just write for yourself first.</p>
+            </div>
+        </div>
+
+        <div id="post-3" class="full-post">
+            <span class="back-btn" onclick="showHome()">← Back to all posts</span>
+            <h2>Exploring New Technologies</h2>
+            <div class="post-meta">January 8, 2026</div>
+            <div class="post-content">
+                <p>The tech landscape is constantly evolving, and staying curious is key to growth. Every year brings new tools, languages, and frameworks that promise to revolutionize how we build software.</p>
+                
+                <p>Recently, I've been exploring some fascinating technologies that are changing the way we approach development. From AI-assisted coding to new web frameworks, the possibilities are endless.</p>
+                
+                <p>What I've learned is that while it's important to stay current, it's equally important not to chase every new trend. Focus on technologies that align with your goals and interests. Deep knowledge in a few areas is more valuable than surface-level understanding of everything.</p>
+                
+                <p>The most exciting part of working in technology is that there's always something new to learn. Embrace the journey and enjoy the process of continuous learning.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 My Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPost(postId) {
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('post-' + postId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showHome() {
+            document.getElementById('home-view').style.display = 'block';
+            document.querySelectorAll('.full-post').forEach(post => {
+                post.classList.remove('active');
+            });
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
